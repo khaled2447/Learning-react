@@ -2,6 +2,7 @@ import { GameHeader } from "./components/GameHeader"
 import { Card } from "./components/Card"
 import { useEffect } from "react"
 import { useState } from "react"
+import { WinMessage } from "./components/WInMessage"
 
 const cardValues = ["西", "北", "東", "南", "赤", "青", "緑", "白", "西", "北", "東", "南", "赤", "青", "緑", "白"]
 
@@ -99,16 +100,18 @@ function App() {
   }
 }
 
+  const IsGameComplete = matchedCards.length === cardValues.length
 
   return <div className="app">
     <GameHeader score={score} moves={moves} onReset={initializeGame}/>
-
+    <div>
+      {IsGameComplete && <WinMessage moves={moves}/>}
+    </div>
     <div className="cards-grid">
       {cards.map((card) => (        
         <Card card={card} onClick={handleOnclick}/>
       ))}
     </div>
-
   </div>
 }
 
