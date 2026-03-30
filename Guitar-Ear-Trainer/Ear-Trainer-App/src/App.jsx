@@ -4,12 +4,16 @@ import { Sigil } from "./components/sigil"
 function App() {
 
   return (
-
-    notes.map((note) => {
-      return(
-        <Sigil key={note}  id={note} note={note}/>
+    <div className="grid grid-cols-21 gap-1">
+   { guitarNotes.map((note) =>
+      (
+          <Sigil key={note}  id={note} note={note}/>
       )
-    }))
+    )}
+    </div>
+  )
+    
+
 }
 
 export default App
