@@ -15,7 +15,7 @@ export const Sigil = ({sigil, onClick, note}) => {
 
     if (isPressed){
         return(
-            <div className="relative w-16 h-16 select-none" onClick={handleClick} >
+            <div className="relative w-16 h-16 select-none" onClick={() => handleClick(note)} >
                 <div className="absolute flex inset-0 items-center justify-center z-20" >
                     <SigilComponent width="89%" height="89%"/>    
                 </div>
@@ -32,7 +32,7 @@ export const Sigil = ({sigil, onClick, note}) => {
         )
     }else{
         return(
-            <div className="relative w-16 h-16 select-none" onClick={handleClick}>
+            <div className="relative w-16 h-16 select-none" onClick={() => handleClick(note)}>
                 <div className="absolute inset-0 flex items-center justify-center">
                     <SigilComponent width="100%" height="100%" />
                 </div>  
