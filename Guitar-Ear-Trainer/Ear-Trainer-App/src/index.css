@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 body {
-  background-color: #1a2e2a;
+  background-color: #0e1917;
   color: #a8c5b8;
 }
 
 @theme {
- --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 0.8) 1;
+  --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 0.8) 1 forwards;
 
-@keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
+  @keyframes ping {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    75%,
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
   }
-}
 }

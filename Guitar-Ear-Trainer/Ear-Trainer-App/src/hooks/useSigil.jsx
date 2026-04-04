@@ -1,10 +1,5 @@
 import { useState } from "react";
-
-  const playNote = (note) => {
-    const filename = note.replace('#', 's')
-    const audio = new Audio(`/sounds/${filename}.mp3`)
-    audio.play()
-  }
+import { playNote } from "../data/audio";
 
 export const useSigil = () => {
     const [isPressed, SetPressed] = useState(() => false)
