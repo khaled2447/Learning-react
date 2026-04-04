@@ -3,15 +3,16 @@ import { playNote } from "../data/audio";
 
 export const useSigil = () => {
     const [isPressed, SetPressed] = useState(() => false)
-    const [isVisible, setVisible] = useState(true)
 
-    const handleClick = (note) => {
+    const handleClick = (note, inScale) => {
+        if(!inScale){
+            return;
+        }
         if(!isPressed){
             playNote(note)
         }
         SetPressed(!isPressed)
-        setVisible(true)
     }
 
-    return {isPressed, handleClick, isVisible, setVisible}
+    return {isPressed, handleClick}
 }

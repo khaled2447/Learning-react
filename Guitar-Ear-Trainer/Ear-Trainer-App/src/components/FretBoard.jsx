@@ -12,7 +12,7 @@ const Despair = svgs['badness']
 const markerFrets = [3, 5, 7, 9, 12, 15]
 
 
-export const FretBoard = () => {
+export const FretBoard = (scaleNotes) => {
     return (
      <div className="w-screen flex justify-center">
 
@@ -40,7 +40,7 @@ export const FretBoard = () => {
         {/* open notes */}
         <div className="flex flex-col" style={{ rowGap: sigilSize * 0.05 }} >
           {rootNotes.map((note) => (
-            <SigilRoot key={note} id={note} note={note} sigilSize={sigilSize} />
+            <SigilRoot key={note} id={note} note={note} sigilSize={sigilSize}  scaleNotes={scaleNotes}/>
           ))}
         </div>
 
@@ -61,14 +61,14 @@ export const FretBoard = () => {
 
           {/* fretted notes */}
           <div className="grid grid-cols-16" style={{ columnGap: sigilSize * 0.4, rowGap: sigilSize * 0.05 }}>
-            {guitarNotes.map((note) => (
-              <Sigil key={note} id={note} note={note} sigilSize={sigilSize} />
+            {guitarNotes.map((note, i) => (
+              <Sigil key={i} id={i} note={note} sigilSize={sigilSize} scaleNotes={scaleNotes} />
             ))}
           </div>
 
           {/* stars below */}
           {markerFrets.map(fret => (
-            <div key={`bot-${fret}`} className="absolute text-shadow-amber-400"
+            <div key={`bot-${fret}`} className="absolute text-shadow-amber-400 select-none"
               style={{
                 left: `calc((${fret - 1} / 15.7) * 100% + ${sigilSize * 0.42}px)`,
                 bottom: -sigilSize * 0.4,

@@ -1,12 +1,8 @@
-import { FretBoard } from "./components/FretBoard"
-import { ToolBar } from "./components/ToolBar"
+import { GameManager } from "./components/Manager"
 
 function App() {
   return (
-  <div>
-    <ToolBar />
-    <FretBoard />
-  </div>
+  <GameManager/>
   )
 }
 export default App

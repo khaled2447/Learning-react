@@ -40,11 +40,11 @@ export const scales = {
         name: "Minor",
         interval: [0, 2, 3, 5, 7, 8, 10]
     },
-    melodicMinor: {
+    melodicminor: {
         name: "Melodic Minor",
         interval: [0, 2, 3, 5, 7, 9, 11]
     },
-    harmonicMinor: {
+    harmonicminor: {
         name: "Harmonic Minor",
         interval: [0, 2, 3, 5, 7, 8, 11]
     },
@@ -68,19 +68,19 @@ export const scales = {
         name: "Locrian",
         interval: [0, 1, 3, 5, 6, 8, 10]
     },
-    minorPentatonic: {
+    minorpentatonic: {
         name: "Minor Pentatonic",
         interval: [0, 3, 5, 7, 10]
     },
-    majorPentatonic: {
+    majorpentatonic: {
         name: "Major Pentatonic",
         interval: [0, 2, 4, 7, 9]
     },
-    majorBlues: {
+    majorblues: {
         name: "Major Blues",
         interval: [0, 2, 3, 4, 7, 9]
     },
-    minorBlues: {
+    minorblues: {
         name: "Minor Blues",
         interval: [0, 3, 5, 6, 7, 10]
     },
