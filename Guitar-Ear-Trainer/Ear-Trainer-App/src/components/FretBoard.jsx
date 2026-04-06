@@ -29,7 +29,7 @@ export const FretBoard = ({scaleNotes, setSelectedNotes, selectedNotes}) => {
             height: sigilSize * 6.3
           }}>
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="w-full bg-teal-600"
+            <div key={i} className="w-full bg-teal-500"
               style={{
                 height: i < 3 ? `${sigilSize * 0.015}px` : `${sigilSize * 0.015 * (i - 1)}px`,
                 boxShadow: `0 0 ${sigilSize * 0.1}px ${sigilSize * 0.02}px rgba(94, 234, 212, 0.7)`

@@ -1,11 +1,12 @@
 import { scales } from "../data/notes"
 import { notes } from "../data/notes"
+import { generatePattern } from "../data/gameLogic"
 
-export const ToolBar = ({selectScale, selectRoot, setSelectedNotes})=> {
+export const ToolBar = ({selectScale, selectRoot, setSelectedNotes, scaleNotes})=> {
     return (
 
         <div className="w-full bg-slate-900 flex items-center gap-4 px-6 py-3">
-            <button className="bg-slate-800 text-emerald-100 rounded px-3 py-1">Play pattern</button>
+            <button className="bg-slate-800 text-emerald-100 rounded px-3 py-1"onClick={() => generatePattern(scaleNotes)}>Play pattern</button>
             <select className="bg-slate-800 text-emerald-100 rounded px-3 py-1" 
              onChange={(e) => selectRoot(e.target.value)}>
                 {notes.map((note) => (

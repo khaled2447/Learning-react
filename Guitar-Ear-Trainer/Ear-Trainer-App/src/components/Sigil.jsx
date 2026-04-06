@@ -12,7 +12,7 @@ export const Sigil = ({ id, note, sigilSize, scaleNotes, setSelectedNotes, selec
     const { handleClick } = useSigil()
 
     var inScale = scaleNotes.includes(letter)
-    const position = selectedNotes.indexOf(id) + 1
+    const position = selectedNotes.indexOf(note+id) + 1
     const isPressed = position > 0
 
     if (isPressed) {

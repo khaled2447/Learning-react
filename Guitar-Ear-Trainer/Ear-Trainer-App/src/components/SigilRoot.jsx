@@ -6,14 +6,16 @@ export const SigilRoot = ({ id, note, sigilSize, scaleNotes, setSelectedNotes, s
 
     const SigilComponent = sigils[letter]
 
-    const { isPressed, handleClick } = useSigil()
+    const { handleClick } = useSigil()
 
     var inScale = false
     if (scaleNotes.includes(letter[0])) {
         inScale = true
     }
 
-    const position = selectedNotes.indexOf(id) + 1
+    const position = selectedNotes.indexOf(note+id) + 1
+    const isPressed = position > 0
+
 
 
 
@@ -34,12 +36,12 @@ export const SigilRoot = ({ id, note, sigilSize, scaleNotes, setSelectedNotes, s
                     style={{ paddingBottom: '25%', fontSize: sigilSize * 0.09 }}>{note}</span>
                 {!inScale && (<div className="absolute rounded-full bg-black opacity-60"
                     style={{ width: '102%', height: '102%', top: '-1%', left: '-1%' }} />)}
-                {position && (
+                {position > 0 && (
                     <span className="relative flex" style={{ width: sigilSize * 0.4, height: sigilSize * 0.4 }}>
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full  bg-sky-700 opacity-90"></span>
-                        <span className="relative inline-flex h-full w-full rounded-full  bg-sky-700 opacity-90 z-40"></span>
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-700 opacity-90"></span>
+                        <span className="relative inline-flex h-full w-full rounded-full bg-sky-700 opacity-90 z-40"></span>
                         <span className="absolute flex inset-0 items-center justify-center text-white font-bold font-serif z-50"
-                            style={{ fontSize: sigilSize * 0.25, marginBottom: sigilSize * 0.05}}>{position}</span>
+                            style={{ fontSize: sigilSize * 0.25, marginBottom: sigilSize * 0.05 }}>{position}</span>
                     </span>
                 )}
             </div>
