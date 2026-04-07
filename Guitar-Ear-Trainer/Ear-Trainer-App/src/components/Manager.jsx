@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { ToolBar } from "./ToolBar"
-import { FretBoard } from "./fretBoard"
+import { FretBoard } from "./FretBoard"
 import { generateScaleNotes } from "../data/gameLogic"
 import { ToastContainer, toast, Zoom } from 'react-toastify'
 import { audioReady } from "../data/audio"
