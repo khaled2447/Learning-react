@@ -13,7 +13,7 @@ const markerFrets = [3, 5, 7, 9, 12, 15]
 
 
 
-export const FretBoard = ({scaleNotes, setSelectedNotes, selectedNotes}) => {
+export const FretBoard = ({scaleNotes, setSelectedNotes, selectedNotes, won}) => {
     return (
      <div className="w-screen flex justify-center">
 
@@ -41,7 +41,7 @@ export const FretBoard = ({scaleNotes, setSelectedNotes, selectedNotes}) => {
         {/* open notes */}
         <div className="flex flex-col" style={{ rowGap: sigilSize * 0.05 }} >
           {rootNotes.map((note) => (
-            <SigilRoot key={note} id={note} note={note} sigilSize={sigilSize}  scaleNotes={scaleNotes} setSelectedNotes={setSelectedNotes} selectedNotes={selectedNotes}/>
+            <SigilRoot key={note} id={note} note={note} sigilSize={sigilSize}  scaleNotes={scaleNotes} setSelectedNotes={setSelectedNotes} selectedNotes={selectedNotes} won={won}/>
           ))}
         </div>
 
@@ -63,7 +63,7 @@ export const FretBoard = ({scaleNotes, setSelectedNotes, selectedNotes}) => {
           {/* fretted notes */}
           <div className="grid grid-cols-16" style={{ columnGap: sigilSize * 0.4, rowGap: sigilSize * 0.05 }}>
             {guitarNotes.map((note, i) => (
-              <Sigil key={i} id={i} note={note} sigilSize={sigilSize} scaleNotes={scaleNotes} setSelectedNotes={setSelectedNotes} selectedNotes={selectedNotes}/>
+              <Sigil key={i} id={i} note={note} sigilSize={sigilSize} scaleNotes={scaleNotes} setSelectedNotes={setSelectedNotes} selectedNotes={selectedNotes} won={won}/>
             ))}
           </div>
 

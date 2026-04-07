@@ -1,6 +1,6 @@
 import { sigils } from "../data/sigils"
 import { useSigil } from "../hooks/useSigil"
-export const SigilRoot = ({ id, note, sigilSize, scaleNotes, setSelectedNotes, selectedNotes }) => {
+export const SigilRoot = ({ id, note, sigilSize, scaleNotes, setSelectedNotes, selectedNotes, won }) => {
 
     var letter = note[0] + 'R'
 
@@ -22,7 +22,7 @@ export const SigilRoot = ({ id, note, sigilSize, scaleNotes, setSelectedNotes, s
 
     if (isPressed) {
         return (
-            <div className="relative select-none" style={{ width: sigilSize, height: sigilSize }} onClick={() => handleClick(note, inScale, setSelectedNotes, selectedNotes, id)} >
+            <div className="relative select-none" style={{ width: sigilSize, height: sigilSize }} onClick={() => handleClick(note, inScale, setSelectedNotes, selectedNotes, id, won)} >
                 <div className="absolute flex inset-0 items-center justify-center z-20" >
                     <SigilComponent width="89%" height="89%" />
                 </div>
@@ -48,7 +48,7 @@ export const SigilRoot = ({ id, note, sigilSize, scaleNotes, setSelectedNotes, s
         )
     } else {
         return (
-            <div className="relative  select-none" style={{ width: sigilSize, height: sigilSize }} onClick={() => handleClick(note, inScale, setSelectedNotes, selectedNotes, id)}>
+            <div className="relative  select-none" style={{ width: sigilSize, height: sigilSize }} onClick={() => handleClick(note, inScale, setSelectedNotes, selectedNotes, id, won)}>
                 <div className="absolute inset-0 flex items-center justify-center">
                     <SigilComponent width="100%" height="100%" />
                 </div>

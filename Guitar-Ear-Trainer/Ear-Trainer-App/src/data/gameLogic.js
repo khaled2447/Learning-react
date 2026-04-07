@@ -41,7 +41,11 @@ const weight = [1, 2,  1,  1,  2,  3,  4,  4, 3, 2, 1, 1, 2, 1, 1, 1]
     return parseInt(randomArray[~~(Math.random() * randomArray.length)])
 }
 
-export const generatePattern = (notes) => {
+export const generatePattern = (notes, setPlayed, setPattern, setSelectedNotes, setWon) => {
+    setWon(false)
+    setSelectedNotes([])
+    const played = new Array(4).fill(false)
+    setPlayed([...played]) 
     let pattern = []
     
     let randomNote
@@ -69,13 +73,19 @@ export const generatePattern = (notes) => {
             randomNote = nextNote
         }
     }
-    playPattern(pattern)
-    return pattern
+    playPattern(pattern, setPlayed)
+    setPattern(pattern)
 }
 
-export const playPattern = async (pattern) => {
-    for (const note of pattern) {
-        playNote(note)
+
+export const playPattern = async (pattern, setPlayed) => {
+    setPlayed(new Array(pattern.length).fill(false))
+    await new Promise(resolve => setTimeout(resolve, 50)) // let react render the reset
+    const played = new Array(pattern.length).fill(false)
+    for (let i = 0; i < pattern.length; i++) {
+        playNote(pattern[i])
+        played[i] = true
+        setPlayed([...played])
         await new Promise(resolve => setTimeout(resolve, 500))
     }
 }

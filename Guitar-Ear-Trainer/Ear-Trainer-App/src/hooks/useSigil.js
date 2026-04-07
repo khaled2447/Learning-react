@@ -3,7 +3,10 @@ import { playNote } from "../data/audio";
 
 export const useSigil = () => {
 
-    const handleClick = (note, inScale, setSelectedNotes, selectedNotes, id) => {
+    const handleClick = (note, inScale, setSelectedNotes, selectedNotes, id, won) => {
+        if(won){
+            return
+        }
         if (!inScale){ 
             toast.clearWaitingQueue();
             toast.dismiss()
@@ -22,7 +25,7 @@ export const useSigil = () => {
             return;
         }
 
-        if (selectedNotes.length > 4) return;
+        if (selectedNotes.length > 3) return;
 
         setSelectedNotes([...selectedNotes, note + id])
         playNote(note)
