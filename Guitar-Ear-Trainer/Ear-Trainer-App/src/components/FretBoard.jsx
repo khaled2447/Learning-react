@@ -1,6 +1,6 @@
 import { guitarNotes, notes, rootNotes } from "../data/notes"
 import { svgs } from "../data/svgs"
-import { Sigil } from "../components/sigil"
+import { Sigil } from "../components/Sigil"
 import { SigilRoot } from "../components/SigilRoot"
 
 const sigilSize = Math.max(window.innerWidth / 30)
