@@ -5,6 +5,9 @@ import { generateScaleNotes } from "../data/gameLogic"
 import { ToastContainer, toast, Zoom } from 'react-toastify'
 import { audioReady } from "../data/audio"
 
+const sigilSize = Math.max(window.innerWidth / 30)
+
+
 export const GameManager = () => {
 
     const [loaded, setLoaded] = useState(false)
@@ -57,7 +60,7 @@ if (!loaded) return (
                 limit={1}
                 toastStyle={{ background: '#1E293B', color: '#D1FAE5' }}
             />
-            <ToolBar selectRoot={selectRoot} selectScale={selectScale} setSelectedNotes={setSelectedNotes} scaleNotes={scaleNotes} selectedNotes={selectedNotes} setWon={setWon} />
+            <ToolBar selectRoot={selectRoot} selectScale={selectScale} setSelectedNotes={setSelectedNotes} scaleNotes={scaleNotes} selectedNotes={selectedNotes} setWon={setWon} sigilSize={sigilSize} />
             <FretBoard scaleNotes={scaleNotes} setSelectedNotes={setSelectedNotes} selectedNotes={selectedNotes} won={won} />
         </>
     )
