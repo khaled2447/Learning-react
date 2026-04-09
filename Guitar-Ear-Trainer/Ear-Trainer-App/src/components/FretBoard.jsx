@@ -2,8 +2,8 @@ import { guitarNotes, notes, rootNotes } from "../data/notes"
 import { svgs } from "../data/svgs"
 import { Sigil } from "../components/Sigil"
 import { SigilRoot } from "../components/SigilRoot"
+import useSigilSize from "../hooks/sigilSize";
 
-const sigilSize = Math.max(window.innerWidth / 30)
 
 
 const Lyrenut = svgs['nut']
@@ -14,6 +14,7 @@ const markerFrets = [3, 5, 7, 9, 12, 15]
 
 
 export const FretBoard = ({scaleNotes, setSelectedNotes, selectedNotes, won}) => {
+  const sigilSize = useSigilSize();
     return (
      <div className="w-screen flex justify-center">
 

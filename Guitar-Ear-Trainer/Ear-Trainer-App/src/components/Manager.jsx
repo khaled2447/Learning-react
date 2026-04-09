@@ -4,11 +4,13 @@ import { FretBoard } from "./FretBoard"
 import { generateScaleNotes } from "../data/gameLogic"
 import { ToastContainer, toast, Zoom } from 'react-toastify'
 import { audioReady } from "../data/audio"
+import useSigilSize from "../hooks/sigilSize";
 
-const sigilSize = Math.max(window.innerWidth / 30)
 
 
 export const GameManager = () => {
+    const sigilSize = useSigilSize();
+
 
     const [loaded, setLoaded] = useState(false)
     const [scale, selectScale] = useState("Major")

@@ -17,7 +17,7 @@ export const ToolBar = ({ selectScale, selectRoot, setSelectedNotes, scaleNotes,
         }
     }, [SelectedClean, pattern])
 
-    const s = sigilSize
+    var s = sigilSize
 
     return (
         <>
