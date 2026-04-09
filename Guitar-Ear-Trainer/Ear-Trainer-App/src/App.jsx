@@ -1,8 +1,14 @@
+import { useState } from 'react'
 import { GameManager } from "./components/Manager"
+import { Splash } from "./components/Splash"
+import { unlockAudio } from "./data/audio"
 import useOrientation from "./hooks/useOrientation"
 
 export default function App() {
-  const { portrait, key } = useOrientation();
+  const [started, setStarted] = useState(false)
+  const { portrait, key } = useOrientation()
+
+  if (!started) return <Splash onStart={() => { unlockAudio(); setStarted(true) }} />
 
   if (portrait) {
     return (
@@ -11,12 +17,12 @@ export default function App() {
           Please rotate your phone
         </div>
       </div>
-    );
+    )
   }
 
   return (
     <div key={key}>
       <GameManager />
     </div>
-  );
+  )
 }

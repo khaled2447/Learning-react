@@ -25,3 +25,10 @@ export const playNote = (note) => {
     audioCache[note].currentTime = 0
     audioCache[note].play()
 }
+
+export const unlockAudio = () => {
+    Object.values(audioCache).forEach(audio => {
+        audio.play().then(() => audio.pause()).catch(() => {})
+        audio.currentTime = 0
+    })
+}

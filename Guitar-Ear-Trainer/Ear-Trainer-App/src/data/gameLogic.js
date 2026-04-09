@@ -86,6 +86,6 @@ export const playPattern = async (pattern, setPlayed) => {
         playNote(pattern[i])
         played[i] = true
         setPlayed([...played])
-        await new Promise(resolve => setTimeout(resolve, 500))
+        await new Promise(resolve => setTimeout(resolve, 550))
     }
 }
