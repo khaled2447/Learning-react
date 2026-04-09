@@ -4,8 +4,10 @@ import { Splash } from "./components/Splash"
 import { unlockAudio } from "./data/audio"
 import useOrientation from "./hooks/useOrientation"
 
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+
 export default function App() {
-  const [started, setStarted] = useState(false)
+  const [started, setStarted] = useState(!isIOS)
   const { portrait, key } = useOrientation()
 
   if (portrait) {
