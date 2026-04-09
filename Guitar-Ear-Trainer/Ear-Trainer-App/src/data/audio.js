@@ -9,15 +9,17 @@ const loadAudio = () => {
         return new Promise(resolve => {
             const filename = note.replace('#', 's')
             const audio = new Audio(`/sounds/${filename}.mp3`)
-            audio.addEventListener('canplaythrough', resolve, { once: true })
+            audio.addEventListener('canplay', resolve, { once: true })
             audio.addEventListener('error', resolve, { once: true })
+            audio.load()
             audioCache[note] = audio
         })
     })
 
 Promise.all(promises).then(() => {
     setTimeout(() => { audioReady = true }, 1500)
-})}
+})
+}
 
 loadAudio()
 
@@ -27,8 +29,11 @@ export const playNote = (note) => {
 }
 
 export const unlockAudio = () => {
-    Object.values(audioCache).forEach(audio => {
-        audio.play().then(() => audio.pause()).catch(() => {})
-        audio.currentTime = 0
-    })
+    const context = new (window.AudioContext || window.webkitAudioContext)()
+    const buffer = context.createBuffer(1, 1, 22050)
+    const source = context.createBufferSource()
+    source.buffer = buffer
+    source.connect(context.destination)
+    source.start(0)
+    context.resume()
 }

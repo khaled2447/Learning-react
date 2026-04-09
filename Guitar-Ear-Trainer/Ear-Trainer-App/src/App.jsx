@@ -8,8 +8,6 @@ export default function App() {
   const [started, setStarted] = useState(false)
   const { portrait, key } = useOrientation()
 
-  if (!started) return <Splash onStart={() => { unlockAudio(); setStarted(true) }} />
-
   if (portrait) {
     return (
       <div className="flex flex-col gap-4 justify-center items-center h-screen bg-slate-900">
@@ -19,6 +17,8 @@ export default function App() {
       </div>
     )
   }
+
+  if (!started) return <Splash onStart={() => { unlockAudio(); setStarted(true) }} />
 
   return (
     <div key={key}>
